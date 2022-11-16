@@ -12,7 +12,7 @@ work_data = pd.read_csv("C:/Users/sberry5/Documents/teaching/level-up-python-dat
 
 work_data = work_data.dropna()
 
-work_data = work_data.sample(frac = .5)
+work_data = work_data.sample(frac = .1)
 
 encode_cats = pd.get_dummies(work_data[{'department'}])
 
@@ -33,8 +33,8 @@ X_scaled = scaler.transform(X_train)
 model_list = dict([
   ('logistic', linear_model.LogisticRegression(penalty='none')), 
   ('ridge', linear_model.LogisticRegressionCV(penalty='l2', solver='lbfgs')), 
-  ('lasso', linear_model.LogisticRegressionCV(penalty='l1', solver='liblinear')), 
-  ('elastic', linear_model.LogisticRegressionCV(penalty='elasticnet', l1_ratios = [.1, .5, .7, .9, .95, .99, 1], solver='saga'))
+  #('lasso', linear_model.LogisticRegressionCV(penalty='l1', solver='liblinear')), 
+  #('elastic', linear_model.LogisticRegressionCV(penalty='elasticnet', l1_ratios = [.1, .5, .7, .9, .95, .99, 1], solver='saga'))
 ])
   
 result = []
@@ -45,6 +45,8 @@ for i in list(model_list.keys()):
   regression = model_list.get(i)
 
   regression.fit(X_scaled, y_train)
+  
+  print(regression.coef_)
 
   pred = regression.predict(X_test)
   
