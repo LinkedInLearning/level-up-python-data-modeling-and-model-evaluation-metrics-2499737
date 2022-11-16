@@ -1,5 +1,6 @@
 from collections import Counter
 from imblearn.over_sampling import SMOTE
+from imblearn.combine import SMOTEENN, SMOTETomek
 import numpy as np
 import pandas as pd
 
@@ -17,8 +18,14 @@ outcome = work_data['separatedNY']
 
 Counter(outcome)
 
-oversample = SMOTE()
+smote_enn = SMOTEENN(random_state=1001)
 
-X, y = oversample.fit_resample(predictors, outcome)  
+X, y = smote_enn.fit_resample(predictors, outcome)  
 
 Counter(y)
+
+samplers = [SMOTE(random_state=0), SMOTEENN(random_state=0), SMOTETomek(random_state=0)]
+
+for i in range(samplers.__len__()):
+  X, y = samplers[i].fit_resample(predictors, outcome)  
+  print(Counter(y))
