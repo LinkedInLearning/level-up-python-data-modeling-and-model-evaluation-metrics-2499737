@@ -1,55 +1,13 @@
-from collections import Counter
-from imblearn.over_sampling import SMOTE
-import matplotlib as plt
-import numpy as np
-import pandas as pd
+from joblib import load
+import matplotlib
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.experimental import enable_iterative_imputer
-from sklearn.impute import IterativeImputer
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score, matthews_corrcoef
-from sklearn.model_selection import cross_val_score, RandomizedSearchCV, train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import cross_val_score, RandomizedSearchCV
 
-work_data = pd.read_csv("/Users/sethberry/Documents/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/level_up_data.csv")
-
-work_data = work_data.sample(frac = .20)
-
-encode_cats = pd.get_dummies(work_data[{'department'}])
-
-work_data = work_data.drop({'department'}, axis=1)
-
-work_data = work_data.join(encode_cats)
-
-predictors = work_data.drop('separatedNY', axis=1)
-
-outcome = work_data['separatedNY']
-
-Counter(outcome)
-
-imp_mean = IterativeImputer(random_state=1001)
-
-imputed_data = imp_mean.fit_transform(predictors)
-
-oversample = SMOTE()
-
-X, y = oversample.fit_resample(imputed_data, outcome)  
-
-Counter(y)
-
-X_train, X_test, y_train, y_test = train_test_split(
-  X, y, test_size=0.33, random_state=1001
+X_train_scaled, X_test_scaled, y_train, y_test = load(
+  '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/model_data.joblib'
   )
-
-Counter(y_train)
-Counter(y_test)
-
-X_train_scaler = StandardScaler().fit(X_train)
-
-X_train_scaled = X_train_scaler.transform(X_train)
-
-X_test_scaler = StandardScaler().fit(X_test)
-
-X_test_scaled = X_test_scaler.transform(X_test)
 
 param_distributions = {'max_features': range(8, 10), 'ccp_alpha': range(0, 1)}
 
@@ -88,3 +46,4 @@ forest_importances.plot.bar(yerr=std, ax=ax)
 ax.set_title("Feature importances using MDI")
 ax.set_ylabel("Mean decrease in impurity")
 fig.tight_layout()
+plt.show()
