@@ -1,6 +1,8 @@
 from joblib import load
 import random
-from sklearn.pipeline import Pipelineimport pandas as pd
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.pipeline import Pipeline
+import pandas as pd
 import shap
 
 link = 'https://2499737.youcanlearnit.net/tabulardata.html'
@@ -40,8 +42,14 @@ def smote_balance_function(imputed_data_name, outcome_name):
 
 balanced_data, balanced_outcome = smote_balance_function(imputed_predictors, outcome)
 
+X_test_scaler = StandardScaler().fit(balanced_data)
+
+X_test_scaled = X_test_scaler.transform(balanced_data)
+
 xgb_model = load(
-  '/Users/sethberry/Documents/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/xgboost_model.joblib'
+  '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/xgboost_model.joblib'
   )
   
-xgb_model.predict(balanced_outcome)
+predictions = xgb_model.predict(X_test_scaled)
+
+confusion_matrix(balanced_outcome, predictions)
