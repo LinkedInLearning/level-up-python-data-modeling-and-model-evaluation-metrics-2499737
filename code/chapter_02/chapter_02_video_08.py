@@ -7,7 +7,7 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn import tree
 
 X_train_scaled, X_test_scaled, y_train, y_test = load(
-  '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/model_data.joblib'
+  '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/model_data.joblib'
   )
 
 param_distributions = {'max_features': range(1, 5), 'max_depth': range(5, 10)}
