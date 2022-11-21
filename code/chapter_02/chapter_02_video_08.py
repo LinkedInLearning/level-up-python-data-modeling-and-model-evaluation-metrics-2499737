@@ -10,7 +10,9 @@ X_train_scaled, X_test_scaled, y_train, y_test = load(
   '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/model_data.joblib'
   )
 
-param_distributions = {'max_features': range(1, 5), 'max_depth': range(5, 10)}
+param_distributions = {
+  'max_features': range(1, 5), 'max_depth': range(5, 10)
+  }
 
 search = RandomizedSearchCV(estimator=tree.DecisionTreeClassifier(random_state=0),
                             n_iter=5,
@@ -23,7 +25,7 @@ search.best_params_
 
 search.score(X_scaled_test, y_test)
 
-predictions = search.predict(X_scaled_test)
+predictions = search.predict(X_test_scaled)
 
 balanced_accuracy_score(y_test, predictions)
 matthews_corrcoef(y_test, predictions)
@@ -31,7 +33,7 @@ roc_auc_score(y_test, predictions)
 
 decision_tree = tree.DecisionTreeClassifier(max_features=3, max_depth=7)
 
-decision_tree = decision_tree.fit(X_train, y_train)
+decision_tree = decision_tree.fit(X_train_scaled, y_train)
 
 plt.figure()
 
