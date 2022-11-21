@@ -10,13 +10,13 @@ X_train_scaled, X_test_scaled, y_train, y_test = load(
   )
 
 param_distributions = {
-  'max_features': range(8, 10), 
-  'ccp_alpha': range(0, 1)
+  'max_features': range(5, 10), 
+  'ccp_alpha': range(0, 3)
   }
 
 search = RandomizedSearchCV(
   estimator=RandomForestClassifier(random_state=1001),
-  n_iter=1,
+  n_iter=3,
   param_distributions=param_distributions,
   random_state=1001
   )
@@ -27,15 +27,13 @@ search.best_params_
 
 search.score(X_test_scaled, y_test)
 
-cross_val_score()
-
 predictions = search.predict(X_test_scaled)
 
 Counter(predictions)
 
 balanced_accuracy_score(y_test, predictions)
 matthews_corrcoef(y_test, predictions)
-roc_auc_score(y_test, predictions)
+roc_auc_score(y_test, search.predict_proba(X_test_scaled)[:, 1])
 
 forest = RandomForestClassifier(max_features=8, ccp_alpha=0, random_state=0)
 

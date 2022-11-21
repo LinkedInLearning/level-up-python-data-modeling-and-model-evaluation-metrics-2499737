@@ -26,13 +26,13 @@ search.fit(X_scaled, y_train)
 
 search.best_params_
 
-search.score(X_scaled_test, y_test)
+search.score(X_test_scaled, y_test)
 
 predictions = search.predict(X_test_scaled)
 
 balanced_accuracy_score(y_test, predictions)
 matthews_corrcoef(y_test, predictions)
-roc_auc_score(y_test, predictions)
+roc_auc_score(y_test, search.predict_proba(X_test_scaled)[:, 1])
 
 decision_tree = tree.DecisionTreeClassifier(max_features=3, max_depth=7)
 

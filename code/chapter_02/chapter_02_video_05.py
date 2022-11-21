@@ -25,7 +25,7 @@ grid_predictions = grid_search.predict(X_test_scaled)
 
 balanced_accuracy_score(y_test, grid_predictions)
 matthews_corrcoef(y_test, grid_predictions)
-roc_auc_score(y_test, grid_predictions)
+auc = roc_auc_score(y_test, grid_search.predict_proba(X_test_scaled)[:, 1])
 
 random_search = RandomizedSearchCV(
   estimator=svm.SVC(),
@@ -42,4 +42,4 @@ random_predictions = random_search.predict(X_test_scaled)
 
 balanced_accuracy_score(y_test, random_predictions)
 matthews_corrcoef(y_test, random_predictions)
-roc_auc_score(y_test, random_predictions)
+auc = roc_auc_score(y_test, random_search.predict_proba(X_test_scaled)[:, 1])

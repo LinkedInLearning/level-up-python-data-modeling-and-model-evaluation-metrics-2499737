@@ -43,7 +43,7 @@ dump(
 
 balanced_accuracy_score(y_test, predictions)
 matthews_corrcoef(y_test, predictions)
-roc_auc_score(y_test, predictions)
+auc = roc_auc_score(y_test, xgb_search.predict_proba(X_test_scaled)[:, 1])
 
 Xd = xgb.DMatrix(X_train_scaled, label=y_train)
 
