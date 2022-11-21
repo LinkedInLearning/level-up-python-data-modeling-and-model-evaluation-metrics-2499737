@@ -60,7 +60,7 @@ sampler = get_balanced_sampler(train['separatedNY'].values.ravel())
 tabular_model.fit(train=train, validation=val, train_sampler=sampler)
 
 result = tabular_model.evaluate(test)
-tabular_model.load_best_model
+
 tabular_model.save_model(
   "/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/tabular_dnn"
   )

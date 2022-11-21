@@ -3,8 +3,9 @@ import numpy as np
 from sklearn import linear_model
 from sklearn.metrics import accuracy_score, roc_auc_score, balanced_accuracy_score, matthews_corrcoef
 
-X_train_scaled, X_test_scaled, y_train, y_test = 
-  load('/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/model_data.joblib')
+X_train_scaled, X_test_scaled, y_train, y_test = load(
+  '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/model_data.joblib'
+  )
 
 model_list = dict([
   ('logistic', linear_model.LogisticRegression(penalty='none')), 

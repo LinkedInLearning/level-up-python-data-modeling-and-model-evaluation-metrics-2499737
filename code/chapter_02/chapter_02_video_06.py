@@ -8,9 +8,9 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-# work_data = pd.read_csv("/Users/sethberry/Documents/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/level_up_data.csv")
-
-work_data = pd.read_csv("C:/Users/sberry5/Documents/teaching/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/level_up_data.csv")
+work_data = pd.read_csv(
+  "/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/level_up_data.csv"
+  )
 
 encode_cats = pd.get_dummies(work_data[{'department'}])
 

@@ -11,13 +11,16 @@ X_train_scaled, X_test_scaled, y_train, y_test = load(
   )
 
 param_distributions = {
-  'max_features': range(1, 5), 'max_depth': range(5, 10)
+  'max_features': range(1, 5), 
+  'max_depth': range(5, 10)
   }
 
-search = RandomizedSearchCV(estimator=tree.DecisionTreeClassifier(random_state=0),
-                            n_iter=5,
-                            param_distributions=param_distributions,
-                            random_state=0)
+search = RandomizedSearchCV(
+  estimator=tree.DecisionTreeClassifier(random_state=0),
+  n_iter=5,
+  param_distributions=param_distributions,
+  random_state=0
+  )
 
 search.fit(X_scaled, y_train)
 

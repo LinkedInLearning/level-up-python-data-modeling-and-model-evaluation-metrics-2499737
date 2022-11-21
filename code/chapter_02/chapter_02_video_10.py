@@ -48,7 +48,8 @@ roc_auc_score(y_test, predictions)
 Xd = xgb.DMatrix(X_train_scaled, label=y_train)
 
 model = xgb.train(
-  {'max_depth':6, 'n_estimators':200}, 
+  {'max_depth':6, 
+  'n_estimators':200}, 
   Xd)
 
 explainer = shap.TreeExplainer(model)

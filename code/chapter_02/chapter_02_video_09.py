@@ -9,12 +9,17 @@ X_train_scaled, X_test_scaled, y_train, y_test = load(
   '/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/model_data.joblib'
   )
 
-param_distributions = {'max_features': range(8, 10), 'ccp_alpha': range(0, 1)}
+param_distributions = {
+  'max_features': range(8, 10), 
+  'ccp_alpha': range(0, 1)
+  }
 
-search = RandomizedSearchCV(estimator=RandomForestClassifier(random_state=1001),
-                             n_iter=1,
-                             param_distributions=param_distributions,
-                             random_state=1001)
+search = RandomizedSearchCV(
+  estimator=RandomForestClassifier(random_state=1001),
+  n_iter=1,
+  param_distributions=param_distributions,
+  random_state=1001
+  )
                              
 search.fit(X_train_scaled, y_train)
 
