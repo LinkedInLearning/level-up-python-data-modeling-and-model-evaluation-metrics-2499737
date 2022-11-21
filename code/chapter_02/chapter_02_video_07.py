@@ -9,9 +9,9 @@ X_train_scaled, X_test_scaled, y_train, y_test = load(
 
 model_list = dict([
   ('logistic', linear_model.LogisticRegression(penalty='none')), 
-  #('ridge', linear_model.LogisticRegressionCV(penalty='l2', solver='lbfgs')), 
-  #('lasso', linear_model.LogisticRegressionCV(penalty='l1', solver='liblinear')), 
-  #('elastic', linear_model.LogisticRegressionCV(penalty='elasticnet', l1_ratios = [.1, .5, .7, .9, .95, .99, 1], solver='saga'))
+  ('ridge', linear_model.LogisticRegressionCV(penalty='l2', solver='lbfgs')), 
+  ('lasso', linear_model.LogisticRegressionCV(penalty='l1', solver='liblinear')), 
+  ('elastic', linear_model.LogisticRegressionCV(penalty='elasticnet', l1_ratios = [.1, .5, .7, .9, .95, .99, 1], solver='saga'))
 ])
   
 result = []
