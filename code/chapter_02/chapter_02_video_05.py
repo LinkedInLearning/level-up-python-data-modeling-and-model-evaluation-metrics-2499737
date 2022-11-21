@@ -8,7 +8,7 @@ X_train_scaled, X_test_scaled, y_train, y_test = load(
   )
 
 svc_params = {
-  'C': np.linspace(.1, 5, 5), 'kernel': ['linear', 'rbf']
+  'C': np.linspace(.1, 5, 3), 'kernel': ['linear', 'rbf']
   }
 
 grid_search = GridSearchCV(
