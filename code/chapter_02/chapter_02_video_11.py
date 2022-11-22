@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 work_data = pd.read_csv(
   "/workspaces/level-up-python-data-modeling-and-model-evaluation-metrics-2499737/data/level_up_data.csv"
   )
-  
+
 numeric_variable_names = work_data.select_dtypes('number').columns.to_list()
 
 numeric_variable_names.remove('department')
@@ -44,8 +44,8 @@ model_config = CategoryEmbeddingModelConfig(
     activation="LeakyReLU", 
     learning_rate=1e-3, 
     loss='CrossEntropyLoss',
-    metrics=["f1_score","accuracy"], 
-    metrics_params=[{"num_classes":2},{}]
+    metrics=["f1_score", "accuracy"], 
+    metrics_params=[{"num_classes":2}, {}]
 )
 
 tabular_model = TabularModel(

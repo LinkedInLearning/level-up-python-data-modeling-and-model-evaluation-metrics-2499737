@@ -21,9 +21,8 @@ simple_logistic = LogisticRegression(solver="liblinear", random_state=1001)
 simple_logistic.fit(X, y)
 
 predicted_probs = simple_logistic.predict_proba(X)[:, 1]
-
-predicted_class = simple_logistic.predict(X)
-
 roc_auc_score(y, predicted_probs)
 
+# Don't do this! ROC can only deal with probability values!
+predicted_class = simple_logistic.predict(X)
 roc_auc_score(y, predicted_class)

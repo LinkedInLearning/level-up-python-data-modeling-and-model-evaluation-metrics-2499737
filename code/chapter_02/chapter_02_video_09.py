@@ -29,13 +29,11 @@ search.score(X_test_scaled, y_test)
 
 predictions = search.predict(X_test_scaled)
 
-Counter(predictions)
-
 balanced_accuracy_score(y_test, predictions)
 matthews_corrcoef(y_test, predictions)
 roc_auc_score(y_test, search.predict_proba(X_test_scaled)[:, 1])
 
-forest = RandomForestClassifier(max_features=8, ccp_alpha=0, random_state=0)
+forest = RandomForestClassifier(max_features=6, ccp_alpha=0, random_state=0)
 
 forest.fit(X_train_scaled, y_train)
 
