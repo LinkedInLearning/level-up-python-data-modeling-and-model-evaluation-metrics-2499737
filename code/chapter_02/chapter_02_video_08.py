@@ -22,7 +22,7 @@ search = RandomizedSearchCV(
   random_state=0
   )
 
-search.fit(X_scaled, y_train)
+search.fit(X_train_scaled, y_train)
 
 search.best_params_
 
