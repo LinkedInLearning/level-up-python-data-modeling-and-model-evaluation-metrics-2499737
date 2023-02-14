@@ -1,34 +1,29 @@
 # Level Up: Python Data Modeling and Model Evaluation Metrics
-This is the repository for the LinkedIn Learning course `Level Up: Python Data Modeling and Model Evaluation Metrics`. The full course is available from [LinkedIn Learning][lil-course-url].
+This is the repository for the LinkedIn Learning course Level Up: Python Data Modeling and Model Evaluation Metrics. The full course is available from [LinkedIn Learning][lil-course-url].
 
-_See the readme file in the main branch for updated instructions and information._
-## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+![Level Up: Python Data Modeling and Model Evaluation Metrics][lil-thumbnail-url] 
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+This course is integrated with GitHub Codespaces, an instant cloud developer environment that offers all the functionality of your favorite IDE without the need for any local machine setup. With GitHub Codespaces, you can get hands-on practice from any machine, at any time—all while using a tool that you’ll likely encounter in the workplace.
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
+ 
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
-
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
-
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+Each installment of the Level Up series offers at least 15 bite-sized opportunities to practice programming at various levels of difficulty, so you can challenge yourself and reinforce what you’ve learned. Check out the “Using GitHub Codespaces with this course” video to learn how to get a codespace up and running.
 
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+ 
+In this course, instructor Seth Berry presents 20 Python challenges, starting with a test of basic skills and moving on to more complex tests of your knowledge. Each video is self-contained, so you can pick and choose which challenges you want to try. Explore these practical exercises to work on your coding skills!
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
 
+
+### Instructor
+
+Seth Berry 
+                            
+
+
+                            
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/seth-berry).
+
+[lil-course-url]: https://www.linkedin.com/learning/level-up-python-data-modeling-and-model-evaluation-metrics?dApp=59033956
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/C560DAQFXUWTAAhcXlg/learning-public-crop_675_1200/0/1675980653209?e=2147483647&v=beta&t=CK8ACOx_RRlWGwbQJwpw7fgtE606D1RXhc3gfE8eMRw
