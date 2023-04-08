@@ -7,6 +7,7 @@ accuracy = (TN + TP) / (TN + FP + FN + TP)
 
 accuracy
 
+
 sensitivity = TP / (TP + FN)
 
 specificity = TN / (TN + FP)
